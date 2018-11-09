@@ -3,9 +3,9 @@ package com.lntellimed.petclinic.services.map;
 import java.util.Set;
 
 import com.lntellimed.petclinic.model.Speciality;
-import com.lntellimed.petclinic.services.SpecialtiesService;
+import com.lntellimed.petclinic.services.SpecialtyService;
 
-public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialtiesService {
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialtyService {
 
 	@Override
 	public Set<Speciality> findAll() {
