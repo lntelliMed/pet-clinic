@@ -5,8 +5,11 @@ import com.lntellimed.petclinic.services.VisitService;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
 
-public class VistMapService extends AbstractMapService<Visit, Long> implements VisitService {
+
+@Service
+public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override
     public Set<Visit> findAll() {
