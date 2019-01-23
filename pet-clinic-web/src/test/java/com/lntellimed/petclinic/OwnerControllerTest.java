@@ -46,6 +46,7 @@ class OwnerControllerTest {
 		mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
 	}
 
+	
 	@Test
 	void listOwners() throws Exception {
 		when(ownerService.findAll()).thenReturn(owners);
