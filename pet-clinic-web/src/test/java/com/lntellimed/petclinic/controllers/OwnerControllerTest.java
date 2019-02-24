@@ -12,8 +12,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.lntellimed.petclinic.model.Owner;
 import com.lntellimed.petclinic.services.OwnerService;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.verifyZeroInteractions;
@@ -66,4 +65,17 @@ class OwnerControllerTest {
 
 		verifyZeroInteractions(ownerService);
 	}
+	
+    @Test
+    void processFindFormEmptyReturnMany() throws Exception {
+        when(ownerService.findAllByLastNameLike(anyString()))
+                .thenReturn(Arrays.asList(Owner.builder().id(1l).build(),
+                        Owner.builder().id(2l).build()));
+
+        mockMvc.perform(get("/owners")
+                        .param("lastName",""))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/ownersList"))
+                .andExpect(model().attribute("selections", hasSize(2)));;
+    }
 }
